@@ -1,0 +1,40 @@
+- name: install deps
+  with_items:
+    - parted
+  package:
+    name: '{{ item }}'
+    state: present
+  tags:
+    - volume
+
+- name: create partitions
+  with_items: '{{ volume_partitions }}'
+  parted:
+    device: '{{ item.device }}'
+    number: '{{ item.number }}'
+    flags: '{{ item.flags | default([]) }}'
+    state: '{{ item.state | default("present") }}'
+    part_start: '{{ item.part_start | default("0%") }}'
+    part_end: '{{ item.part_end | default("100%") }}'
+    part_type: '{{ item.part_type | default("primary") }}'
+    unit: '{{ item.unit | default("%") }}'
+  tags:
+    - volume
+
+- name: create filesystems
+  with_items: '{{ volume_partitions }}'
+  filesystem:
+    fstype: '{{ item.filesystem }}'
+    dev: '{{ item.device }}{{ item.number }}'
+  tags:
+    - volume
+
+- name: mount volumes
+  with_items: '{{ volume_partitions }}'
+  mount:
+    path: '{{ item.path }}'
+    src: '{{ item.device }}{{ item.number }}'
+    fstype: '{{ item.filesystem }}'
+    state: mounted
+  tags:
+    - volume
