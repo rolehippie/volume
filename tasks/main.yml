@@ -35,6 +35,7 @@
     path: '{{ item.path }}'
     src: '{{ item.device }}{{ item.number }}'
     fstype: '{{ item.filesystem }}'
+    ops: '{{ item.options | default([]) | join(",") }}'
     state: mounted
   tags:
     - volume
