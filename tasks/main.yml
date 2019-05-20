@@ -25,7 +25,7 @@
   with_items: '{{ volume_partitions }}'
   filesystem:
     fstype: '{{ item.filesystem }}'
-    dev: '{{ item.device }}{{ item.number }}'
+    dev: '{{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}'
   tags:
     - volume
 
@@ -33,7 +33,7 @@
   with_items: '{{ volume_partitions }}'
   mount:
     path: '{{ item.path }}'
-    src: '{{ item.device }}{{ item.number }}'
+    src: '{{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}'
     fstype: '{{ item.filesystem }}'
     opts: '{{ item.options | default([]) | join(",") }}'
     state: mounted
