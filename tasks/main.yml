@@ -36,7 +36,7 @@
 - name: mount volumes
   loop: '{{ volume_partitions }}'
   loop_control:
-    label: 'device: {{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}, path: {{ item.path }}, options: {{ item.options | default([]) | join(",") }} '
+    label: 'device: {{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}, path: {{ item.path }}'
   mount:
     path: '{{ item.path }}'
     src: '{{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}'
