@@ -1,5 +1,5 @@
 - name: install deps
-  with_items:
+  loop:
     - parted
   package:
     name: '{{ item }}'
@@ -8,7 +8,9 @@
     - volume
 
 - name: create partitions
-  with_items: '{{ volume_partitions }}'
+  loop: '{{ volume_partitions }}'
+  loop_control:
+    label: '{{ item.device }}'
   parted:
     device: '{{ item.device }}'
     number: '{{ item.number }}'
@@ -22,7 +24,9 @@
     - volume
 
 - name: create filesystems
-  with_items: '{{ volume_partitions }}'
+  loop: '{{ volume_partitions }}'
+  loop_control: 
+    label: 'device: {{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}, fs: {{ item.filesystem }}'
   filesystem:
     fstype: '{{ item.filesystem }}'
     dev: '{{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}'
@@ -30,7 +34,9 @@
     - volume
 
 - name: mount volumes
-  with_items: '{{ volume_partitions }}'
+  loop: '{{ volume_partitions }}'
+  loop_control:
+    label: 'device: {{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}, path: {{ item.path }}, options: {{ item.options | default([]) | join(",") }} '
   mount:
     path: '{{ item.path }}'
     src: '{{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}'
