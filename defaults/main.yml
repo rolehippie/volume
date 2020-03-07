@@ -1,1 +1,33 @@
+# Standards: 0.1
+---
+# @var volume_partitions:description: List of volume partitions
+# @var volume_partitions:example: >
+# volume_partitions:
+#   - name: mysql
+#     number: 1
+#     path: /var/lib/mysql
+#     filesystem: ext4
+#     device: /dev/sdb
+#     options:
+#       - discard
+#       - nofail
+#       - defaults
+#   - name: foobar
+#     number: 1
+#     path: /var/lib/foobar
+#     filesystem: ext4
+#     device: /dev/sdc
+#     state: present
+#     part_start: 0%
+#     part_end: 100%
+#     part_type: primary
+#     unit: %
+#     flags: []
+#     options:
+#       - discard
+#       - nofail
+#       - defaults
+# @end
 volume_partitions: []
+
+...

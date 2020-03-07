@@ -1,47 +1,51 @@
-- name: install deps
+# Standards: 0.1
+---
+- name: Install required packages
   loop:
     - parted
   package:
-    name: '{{ item }}'
+    name: "{{ item }}"
     state: present
   tags:
     - volume
 
-- name: create partitions
-  loop: '{{ volume_partitions }}'
+- name: Create defined partitions
+  loop: "{{ volume_partitions }}"
   loop_control:
-    label: '{{ item.device }}'
+    label: "{{ item.device }}"
   parted:
-    device: '{{ item.device }}'
-    number: '{{ item.number }}'
-    flags: '{{ item.flags | default([]) }}'
-    state: '{{ item.state | default("present") }}'
-    part_start: '{{ item.part_start | default("0%") }}'
-    part_end: '{{ item.part_end | default("100%") }}'
-    part_type: '{{ item.part_type | default("primary") }}'
-    unit: '{{ item.unit | default("%") }}'
+    device: "{{ item.device }}"
+    number: "{{ item.number }}"
+    flags: "{{ item.flags | default([]) }}"
+    state: "{{ item.state | default('present') }}"
+    part_start: "{{ item.part_start | default('0%') }}"
+    part_end: "{{ item.part_end | default('100%') }}"
+    part_type: "{{ item.part_type | default('primary') }}"
+    unit: "{{ item.unit | default('%') }}"
   tags:
     - volume
 
-- name: create filesystems
-  loop: '{{ volume_partitions }}'
-  loop_control: 
-    label: 'device: {{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}, fs: {{ item.filesystem }}'
-  filesystem:
-    fstype: '{{ item.filesystem }}'
-    dev: '{{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}'
-  tags:
-    - volume
-
-- name: mount volumes
-  loop: '{{ volume_partitions }}'
+- name: Create defined filesystems
+  loop: "{{ volume_partitions }}"
   loop_control:
-    label: 'device: {{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}, path: {{ item.path }}'
+    label: "{{ item.device }}"
+  filesystem:
+    fstype: "{{ item.filesystem }}"
+    dev: "{{ item.device }}{% if item.format | default(False) == 'by-id' %}-part{% endif %}{{ item.number }}"
+  tags:
+    - volume
+
+- name: Mount defined volumes
+  loop: "{{ volume_partitions }}"
+  loop_control:
+    label: "{{ item.device }}"
   mount:
-    path: '{{ item.path }}'
-    src: '{{ item.device }}{% if item.format | default("") == "by-id" %}-part{% endif %}{{ item.number }}'
-    fstype: '{{ item.filesystem }}'
-    opts: '{{ item.options | default([]) | join(",") }}'
+    path: "{{ item.path }}"
+    src: "{{ item.device }}{% if item.format | default(False) == 'by-id' %}-part{% endif %}{{ item.number }}"
+    fstype: "{{ item.filesystem }}"
+    opts: "{{ item.options | default([]) | join(',') }}"
     state: mounted
   tags:
     - volume
+
+...
