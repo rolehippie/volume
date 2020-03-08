@@ -1,30 +1,69 @@
 # volume
 
-TBD
+[![Build Status](https://cloud.drone.io/api/badges/rolehippie/volume/status.svg)](https://cloud.drone.io/rolehippie/volume)
 
+Ansible role to configure volume
 
-## Security
+## Table of content
 
-If you find a security issue please contact thomas@webhippie.de first.
+* [Default Variables](#default-variables)
+  * [volume_partitions](#volume_partitions)
+* [Dependencies](#dependencies)
+* [License](#license)
+* [Author](#author)
 
+---
 
-## Contributing
+## Default Variables
 
-Fork -> Patch -> Push -> Pull Request
+### volume_partitions
 
+List of volume partitions
 
-## Authors
+#### Default value
 
-* [Thomas Boerger](https://github.com/tboerger)
+```YAML
+volume_partitions: []
+```
 
+#### Example usage
+
+```YAML
+volume_partitions:
+  - name: mysql
+    number: 1
+    path: /var/lib/mysql
+    filesystem: ext4
+    device: /dev/sdb
+    options:
+      - discard
+      - nofail
+      - defaults
+  - name: foobar
+    number: 1
+    path: /var/lib/foobar
+    filesystem: ext4
+    device: /dev/sdc
+    state: present
+    part_start: 0%
+    part_end: 100%
+    part_type: primary
+    unit: %
+    flags: []
+    options:
+      - discard
+      - nofail
+      - defaults
+```
+
+## Dependencies
+
+None.
 
 ## License
 
 Apache-2.0
 
+## Author
 
-## Copyright
-
-```
-Copyright (c) 2018 Thomas Boerger <thomas@webhippie.de>
-```
+Thomas Boerger
