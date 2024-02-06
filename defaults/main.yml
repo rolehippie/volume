@@ -1,4 +1,3 @@
-# Standards: 1.2
 ---
 # @var volume_partitions:description: List of volume partitions
 # @var volume_partitions:example: >
