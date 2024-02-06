@@ -2,7 +2,7 @@
 - name: Install required packages
   loop:
     - parted
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   tags:
@@ -12,7 +12,7 @@
   loop: "{{ volume_partitions }}"
   loop_control:
     label: "{{ item.device }}"
-  parted:
+  community.general.parted:
     device: "{{ item.device }}"
     number: "{{ item.number }}"
     flags: "{{ item.flags | default([]) }}"
@@ -28,7 +28,7 @@
   loop: "{{ volume_partitions }}"
   loop_control:
     label: "{{ item.device }}"
-  filesystem:
+  community.general.filesystem:
     fstype: "{{ item.filesystem }}"
     dev: "{{ item.device }}{% if item.format | default(False) == 'by-id' %}-part{% endif %}{{ item.number }}"
   tags:
@@ -38,7 +38,7 @@
   loop: "{{ volume_partitions }}"
   loop_control:
     label: "{{ item.device }}"
-  mount:
+  ansible.posix.mount:
     path: "{{ item.path }}"
     src: "{{ item.device }}{% if item.format | default(False) == 'by-id' %}-part{% endif %}{{ item.number }}"
     fstype: "{{ item.filesystem }}"
