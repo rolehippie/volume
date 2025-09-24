@@ -15,7 +15,7 @@
   community.general.parted:
     device: "{{ item.device }}"
     number: "{{ item.number }}"
-    label: "{{ item.label | default('msdos') }}"
+    label: "{{ omit if item.label is undefined else item.label }}"
     name: "{% if item.label == 'gpt' %}GPT{% endif %}"
     flags: "{{ item.flags | default([]) }}"
     state: "{{ item.state | default('present') }}"
