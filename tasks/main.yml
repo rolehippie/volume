@@ -16,7 +16,7 @@
     device: "{{ item.device }}"
     number: "{{ item.number }}"
     label: "{{ omit if item.label is undefined else item.label }}"
-    name: "{% if item.label == 'gpt' %}GPT{% endif %}"
+    name: "{{ 'GPT' if item.label == 'gpt' else omit }}"
     flags: "{{ item.flags | default([]) }}"
     state: "{{ item.state | default('present') }}"
     part_start: "{{ item.part_start | default('0%') }}"
