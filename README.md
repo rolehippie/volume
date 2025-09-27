@@ -48,6 +48,7 @@ volume_partitions:
   - name: mysql
     number: 1
     path: /var/lib/mysql
+    label: msdos
     filesystem: ext4
     device: /dev/sdb
     options:
@@ -57,6 +58,7 @@ volume_partitions:
   - name: foobar
     number: 1
     path: /var/lib/foobar
+    label: gpt
     filesystem: ext4
     device: /dev/sdc
     state: present
