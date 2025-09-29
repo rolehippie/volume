@@ -30,11 +30,16 @@ galaxy_info:
       versions:
         - focal
         - jammy
+        - noble
   galaxy_tags:
     - volume
     - hetzner
     - hcloud
 
 dependencies: []
+
+collections:
+  - ansible.posix
+  - community.general
 
 ...

@@ -32,7 +32,7 @@
     label: "{{ item.device }}"
   community.general.filesystem:
     fstype: "{{ item.filesystem }}"
-    dev: "{{ item.device }}{% if item.format | default(False) == 'by-id' %}-part{% endif %}{{ item.number }}"
+    dev: "{{ item.device }}{% if item.format | default(false) == 'by-id' %}-part{% endif %}{{ item.number }}"
   tags:
     - volume
 
@@ -42,7 +42,7 @@
     label: "{{ item.device }}"
   ansible.posix.mount:
     path: "{{ item.path }}"
-    src: "{{ item.device }}{% if item.format | default(False) == 'by-id' %}-part{% endif %}{{ item.number }}"
+    src: "{{ item.device }}{% if item.format | default(false) == 'by-id' %}-part{% endif %}{{ item.number }}"
     fstype: "{{ item.filesystem }}"
     opts: "{{ item.options | default([]) | join(',') }}"
     state: mounted
