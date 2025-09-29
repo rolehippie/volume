@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/rolehippie/volume/compare/v2.0.0...v2.1.0) (2025-09-29)
+
+
+### Features
+
+* add gpt partition table support ([cdc29a4](https://github.com/rolehippie/volume/commit/cdc29a4dfb89103de44a2699c68afd02982de24e))
+* apply new repo structure and update linting and integrate noble ([f61ce0e](https://github.com/rolehippie/volume/commit/f61ce0ed92ecdeeda00131c67c1ae377e0c4d94a))
+
 ## [2.0.0](https://github.com/rolehippie/volume/compare/v1.0.0...v2.0.0) (2024-02-12)
 
 
