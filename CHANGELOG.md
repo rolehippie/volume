@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.6.0](https://github.com/rolehippie/volume/compare/v3.5.0...v3.6.0) (2026-04-27)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=12.6.0,<12.7.0 ([#55](https://github.com/rolehippie/volume/issues/55)) ([5f26759](https://github.com/rolehippie/volume/commit/5f26759f1814d999bc7222e88e829120acc73272))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([7d6ee45](https://github.com/rolehippie/volume/commit/7d6ee45a542d30641bf83192f4af1ea939ae4326))
+* **flake:** updated lockfile [skip ci] ([363f00c](https://github.com/rolehippie/volume/commit/363f00c835438de4d685d6fb01293e8f1367f09b))
+* **flake:** updated lockfile [skip ci] ([53ca475](https://github.com/rolehippie/volume/commit/53ca4754ebd5da5aaf877c04927a5793015a8fca))
+* **flake:** updated lockfile [skip ci] ([a8f23c8](https://github.com/rolehippie/volume/commit/a8f23c8ec5ec232f2258f7dad52158eaa3360f75))
+
 ## [3.5.0](https://github.com/rolehippie/volume/compare/v3.4.0...v3.5.0) (2026-03-30)
 
 ### Dependencies
