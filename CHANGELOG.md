@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.8.0](https://github.com/rolehippie/volume/compare/v4.7.0...v4.8.0) (2026-10-12)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=13.5.0,<13.6.0 ([#82](https://github.com/rolehippie/volume/issues/82)) ([241792e](https://github.com/rolehippie/volume/commit/241792e52291ea11434f42c07f6090494798a526))
+* **mise:** update dependency pipx:ansible-core to v2.21.5 ([#80](https://github.com/rolehippie/volume/issues/80)) ([f1fb91d](https://github.com/rolehippie/volume/commit/f1fb91d8e94a3a2a258d2e09fe8b774901b0212c))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.2 ([#74](https://github.com/rolehippie/volume/issues/74)) ([899f726](https://github.com/rolehippie/volume/commit/899f726a7a027e9979cfdca7ac409d441a0b3b8e))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.3 ([#81](https://github.com/rolehippie/volume/issues/81)) ([8104902](https://github.com/rolehippie/volume/commit/81049026fabc7bacb660479ee5b870444587f1b5))
+* **mise:** update dependency pipx:ansible-lint to v26.10.0 ([#83](https://github.com/rolehippie/volume/issues/83)) ([14ad226](https://github.com/rolehippie/volume/commit/14ad226a1eb904e79e362035d3a2bb2b2fbcbdb3))
+* **mise:** update dependency pipx:ansible-lint to v26.9.0 ([#75](https://github.com/rolehippie/volume/issues/75)) ([ed084a4](https://github.com/rolehippie/volume/commit/ed084a4585e9f0b951837e48c030b2c3eeb37e8a))
+* **mise:** update dependency pipx:molecule to v26.10.0 ([#84](https://github.com/rolehippie/volume/issues/84)) ([492ae07](https://github.com/rolehippie/volume/commit/492ae07d5dae594db6a75fd3afb0c6e8b54d79b1))
+* **mise:** update dependency pipx:molecule to v26.9.0 ([#76](https://github.com/rolehippie/volume/issues/76)) ([7a34ec7](https://github.com/rolehippie/volume/commit/7a34ec70b45818d6b036803a932444a93ae601b1))
+* **mise:** update dependency prek to v0.5.4 ([#77](https://github.com/rolehippie/volume/issues/77)) ([4a22f73](https://github.com/rolehippie/volume/commit/4a22f73904f41d7c4c70e05b97af94d8a302da1a))
+* **mise:** update dependency prek to v0.5.5 ([#79](https://github.com/rolehippie/volume/issues/79)) ([caa1eda](https://github.com/rolehippie/volume/commit/caa1edaed596e8987332d65880205d8411a738a0))
+
 ## [4.7.0](https://github.com/rolehippie/volume/compare/v4.6.0...v4.7.0) (2026-09-14)
 
 ### Dependencies
