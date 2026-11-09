@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.0.0](https://github.com/rolehippie/volume/compare/v4.8.0...v5.0.0) (2026-11-09)
+
+### Dependencies
+
+* **major:** update dependency community.general to v14 ([#91](https://github.com/rolehippie/volume/issues/91)) ([99a6305](https://github.com/rolehippie/volume/commit/99a63052ae59447c0ee3b44fa3ed2647dd4971d6))
+* **mise:** update dependency pipx:ansible-core to v2.22.0 ([#90](https://github.com/rolehippie/volume/issues/90)) ([352e70b](https://github.com/rolehippie/volume/commit/352e70bc498b0b46c926d1616270a1f52eac8029))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.4 ([#95](https://github.com/rolehippie/volume/issues/95)) ([fe08d7c](https://github.com/rolehippie/volume/commit/fe08d7c3341de9acbc196cd0829f1b358a2d1790))
+* **mise:** update dependency pipx:ansible-lint to v26.10.1 ([#85](https://github.com/rolehippie/volume/issues/85)) ([d64f67a](https://github.com/rolehippie/volume/commit/d64f67a8da58da1ef4ca1b3c88a240d3ce5ccfb5))
+* **mise:** update dependency pipx:ansible-lint to v26.11.0 ([#93](https://github.com/rolehippie/volume/issues/93)) ([eed2975](https://github.com/rolehippie/volume/commit/eed2975ceaae0b2d7cf0115d50efb50390017148))
+* **mise:** update dependency pipx:molecule to v26.11.0 ([#94](https://github.com/rolehippie/volume/issues/94)) ([c6c3fe5](https://github.com/rolehippie/volume/commit/c6c3fe5aaf08b1163585bce564b200976936df94))
+* **mise:** update dependency prek to v0.5.10 ([#92](https://github.com/rolehippie/volume/issues/92)) ([cf942cf](https://github.com/rolehippie/volume/commit/cf942cf57a12c088ff3e36818872cf1c5f4fb06b))
+* **mise:** update dependency prek to v0.5.6 ([#86](https://github.com/rolehippie/volume/issues/86)) ([69d58b3](https://github.com/rolehippie/volume/commit/69d58b3f37a17cb45646c60191f6dd97ca4e4b48))
+* **mise:** update dependency prek to v0.5.7 ([#87](https://github.com/rolehippie/volume/issues/87)) ([be03a86](https://github.com/rolehippie/volume/commit/be03a869ffba7aa73c506a84d3b453e490f78979))
+* **mise:** update dependency prek to v0.5.9 ([#89](https://github.com/rolehippie/volume/issues/89)) ([e513273](https://github.com/rolehippie/volume/commit/e5132738682c4ab9d6fd67b2cb49378a4e837302))
+* **mise:** update node.js to v26 ([#88](https://github.com/rolehippie/volume/issues/88)) ([b1bda95](https://github.com/rolehippie/volume/commit/b1bda95e906893f64dc071f386f4a36884439eab))
+
 ## [4.8.0](https://github.com/rolehippie/volume/compare/v4.7.0...v4.8.0) (2026-10-12)
 
 ### Dependencies
